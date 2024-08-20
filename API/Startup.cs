@@ -173,7 +173,7 @@ public class Startup
             .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
             .WithTags("Administradores");
 
-            endpoints.MapGet("/Administradores/{id}", ([FromRoute] int id, IAdministradorServico administradorServico) =>
+            endpoints.MapGet("/administradores/{id}", ([FromRoute] int id, IAdministradorServico administradorServico) =>
             {
                 var administrador = administradorServico.GetAdministradorById(id);
                 if (administrador == null) return Results.NotFound();
